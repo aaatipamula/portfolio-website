@@ -1,6 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
 import Navbar from "../islands/Navbar.tsx"
-import Counter from "../islands/Counter.tsx";
 
 export default function Home() {
   return (
