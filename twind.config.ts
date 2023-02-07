@@ -10,5 +10,16 @@ export default {
     'theme-pink': '#D9BEB8',
     'theme-medium-grey': '#404040',
     'theme-black': '#0D0D0D'
+  },
+  extend: {
+    animation: {
+      fadeIn: "fadeIn 2s ease-in forwards"
+    },
+    keyframes: {
+      fadeIn: {
+        "0%": { opacity: 0 },
+        "100%": { opacity: 1 }
+      }
+    }
   }
 } as Options;
