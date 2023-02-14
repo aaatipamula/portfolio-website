@@ -1,29 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
-import { Handlers, PageProps } from "$fresh/server.ts"
 import Navbar from "../components/Navbar.tsx"
+import Skills from "../components/Skills.tsx";
 
-const github_api_url = 'https://api.github.com/users/aaatipamula/repos?sort=updated'
 
-interface Repo {
-    name: string,
-    description: string,
-    html_url: string,
-    language: string
-}
-
-export const handler: Handlers<Array<Repo>> = {
-  async GET(_, ctx) {
-    const resp = await fetch(github_api_url);
-    const repos: Array<Repo> = await resp.json();
-    const top_three_repos: Array<Repo> = repos.slice(0, 3)
-
-    // check for rate limit and pull from local file if rate limited
-    
-    return ctx.render(top_three_repos);
-  },
-};
-
-export default function Home({ data }: PageProps<Array<Repo>>) {
+export default function Home() {
 
   return (
     <>
@@ -31,24 +11,18 @@ export default function Home({ data }: PageProps<Array<Repo>>) {
         <title>Aniketh A</title>
       </Head>
       <body class="bg-theme-black">
-        <Navbar active="/"></Navbar>
-        <h2 class="block justify-center my-20 font-medium font-sans text-5xl sm:text-7xl text-center text-theme-dark-pink animate-fadeIn">Hi, I'm Aniketh</h2>
-        <h2 class="block justify-center my-14 text-4xl text-center text-[#A68F8A] animate-fadeInSec">Recent Projects</h2>
-        <div class="flex flex-col sm:flex-row items-center justify-center">
-          {
-            data.map((card) => (
-              <a href={card.html_url} class="rounded-xl px-6 py-2 bg-theme-pink m-4 w-11/12 sm:w-2/3 hover:-translate-y-2 hover:scale-105 block transition-transform ease-in-out duration-300 animate-fadeInThird">
-                  <div class="text-xl font-semibold text-theme-black border-b-1 border-theme-black sm:border-b-0">{card.name}</div>
-                  <div class="my-4 text-[theme-black]">{card.description}</div>
-                  <div class="text-sm font-light text-[theme-black]">{card.language}</div>
-              </a>
-            ))
-          }
+        <Navbar active="/" fadein={true}></Navbar>
+        <div class="w-5/6 sm:w-3/4 mx-auto">
+          <div class="h-screen">
+            <div class="flex h-1/3 items-end">
+              <h2 class="mb-3 text-5xl sm:text-7xl text-theme-pink animate-fadeIn ">Hi, I'm Aniketh</h2>
+            </div>
+            <div class="sm:w-11/12">
+              <p class="text-xl sm:text-2xl text-theme-dark-pink break-words animate-fadeInSec border-t-2 border-theme-medium-grey">An aspiring computer science major at the University of Kansas with a passion for tech.</p>
+            </div>
+          </div>
+          <Skills></Skills>
         </div>
-        <div>
-          <h2>Music I Like</h2>
-        </div>
-        /** Add footer component */
       </body>
     </>
   );

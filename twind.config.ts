@@ -14,9 +14,10 @@ export default {
         'theme-black': '#0D0D0D'
       },
       animation: {
+        fadeInNav: "fadeInOnly 2s linear",
         fadeIn: "fadeIn 1s linear",
-        fadeInSec: "fadeIn2 1s linear",
-        fadeInThird: "fadeIn2 1.5s linear",
+        fadeInSec: "fadeIn2 1.5s linear",
+        fadeInThird: "fadeIn3 2s linear",
       },
       keyframes: {
         fadeIn: {
@@ -27,7 +28,19 @@ export default {
           "0%": { opacity: 0 },
           "50%": { opacity: 0, transform: 'translateY(0.25rem)' },
           "100%": { opacity: 1, transform: 'translateY(0rem)' }
-        }
+        },
+        fadeIn3: {
+          "0%": { opacity: 0},
+          "33%": { opacity: 0 },
+          "66%": { opacity: 0, transform: 'translateY(0.25rem)' },
+          "100%": { opacity: 1, transform: 'translateY(0rem)' }
+        },
+        fadeInOnly: {
+          "0%": { opacity: 0},
+          "33%": { opacity: 0 },
+          "66%": { opacity: 0 },
+          "100%": { opacity: 1 }
+        },
       }
     }
   },
