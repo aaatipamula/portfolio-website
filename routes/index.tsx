@@ -1,6 +1,8 @@
 import { Head } from "$fresh/runtime.ts";
-import Navbar from "../components/Navbar.tsx"
+
+import Navbar from "../components/Navbar.tsx";
 import Skills from "../components/Skills.tsx";
+import Footer from "../components/Footer.tsx"
 
 
 export default function Home() {
@@ -11,7 +13,7 @@ export default function Home() {
         <title>Aniketh A</title>
       </Head>
       <body class="bg-theme-black">
-        <Navbar active="/" fadein={true}></Navbar>
+        <Navbar active="/"></Navbar>
         <div class="w-5/6 sm:w-3/4 mx-auto">
           <div class="h-screen">
             <div class="flex h-1/3 items-end">

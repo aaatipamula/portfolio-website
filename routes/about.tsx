@@ -7,9 +7,11 @@ export default function Home() {
       <Head>
         <title>About Me</title>
       </Head>
-      <body class="bg-[#0D0D0D]">
+      <body class="bg-theme-black">
         <Navbar active="/about"></Navbar>
       </body>
     </>
+
+    
   );
 }
